@@ -12,14 +12,13 @@
 <body>
   <div class="page">
 
-    <!-- Left: summer image panel -->
-    <div class="image-panel" role="img" aria-label="Trooppinen ranta auringonpaisteessa">
-      <div class="image-panel__overlay">
-        <div class="image-panel__content">
-          <span class="image-panel__badge">👴 Turvaportaali 3000</span>
-          <h2 class="image-panel__heading">"Salasana on<br>syntymäpäiväni."</h2>
-          <p class="image-panel__sub">— Tietoturva-asiantuntija, 1987</p>
-        </div>
+    <!-- Left: blue panel -->
+    <div class="image-panel" role="img" aria-label="Tervetuloa takaisin">
+      <div class="image-panel__content">
+        <span class="image-panel__badge">👴 Turvaportaali 3000</span>
+        <div class="image-panel__quote">"</div>
+        <h2 class="image-panel__heading">Salasana on<br>syntymäpäiväni.</h2>
+        <p class="image-panel__sub">— Tietoturva-asiantuntija, 1987</p>
       </div>
     </div>
 
@@ -35,8 +34,10 @@
 
         <!-- Header -->
         <div class="card__header">
-          <h1 class="card__title">Welcome back</h1>
-          <p class="card__subtitle">Log in to your account to continue</p>
+          <h1 class="card__title">Login</h1>
+          <p class="card__subtitle">
+            Don't have an account? <a href="#">Register</a>
+          </p>
         </div>
 
         <!-- Form -->
@@ -44,41 +45,41 @@
           <div class="fields">
 
             <div class="field">
-              <label class="field__label" for="email">Email</label>
+              <label class="field__label" for="email">Email<span>*</span></label>
               <input
                 class="field__input"
                 id="email"
                 type="email"
                 name="email"
-                placeholder="your@email.com"
+                placeholder="Email"
                 autocomplete="email"
               />
             </div>
 
             <div class="field">
-              <label class="field__label" for="password">Password</label>
+              <label class="field__label" for="password">Password<span>*</span></label>
               <input
                 class="field__input"
                 id="password"
                 type="password"
                 name="password"
-                placeholder="••••••••"
+                placeholder="Password"
                 autocomplete="current-password"
               />
-              <a class="field__forgot" href="mailto:info@security.fi">Forgot password?</a>
+            </div>
+
+            <div class="field__row">
+              <label class="field__remember">
+                <input type="checkbox" id="remember" />
+                <span class="field__remember-label">Remember me</span>
+              </label>
+              <a class="field__forgot" href="mailto:info@security.fi">Forgot Password?</a>
             </div>
 
           </div>
 
-          <button class="btn-primary" type="submit">Log in</button>
+          <button class="btn-primary" type="submit">Login</button>
         </form>
-
-        <!-- Divider -->
-        <div class="divider">
-          <span class="divider__line"></span>
-          <span class="divider__text">or</span>
-          <span class="divider__line"></span>
-        </div>
 
         <!-- Footer -->
         <p class="card__footer">
@@ -106,7 +107,7 @@
           const err = document.createElement('p');
           err.id = 'login-error';
           err.textContent = 'Väärä sähköposti tai salasana.';
-          err.style.cssText = 'color:#dc2626;font-size:14px;text-align:center;margin-top:-8px;';
+          err.style.cssText = 'color:#EF4444;font-size:14px;text-align:center;margin-top:-8px;';
           document.querySelector('.btn-primary').insertAdjacentElement('beforebegin', err);
         }
       }

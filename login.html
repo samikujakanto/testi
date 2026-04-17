@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log in</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="page">
+
+    <!-- Left: summer image panel -->
+    <div class="image-panel" role="img" aria-label="Trooppinen ranta auringonpaisteessa">
+      <div class="image-panel__overlay">
+        <div class="image-panel__content">
+          <span class="image-panel__badge">👴 Turvaportaali 3000</span>
+          <h2 class="image-panel__heading">"Salasana on<br>syntymäpäiväni."</h2>
+          <p class="image-panel__sub">— Tietoturva-asiantuntija, 1987</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: login form -->
+    <div class="form-panel">
+      <div class="card">
+
+        <!-- Logo -->
+        <div class="card__logo">
+          <span class="card__logo-icon">💥</span>
+          <span class="card__logo-name">Läski paukkuu 84</span>
+        </div>
+
+        <!-- Header -->
+        <div class="card__header">
+          <h1 class="card__title">Welcome back</h1>
+          <p class="card__subtitle">Log in to your account to continue</p>
+        </div>
+
+        <!-- Form -->
+        <form class="card__form" id="login-form" novalidate>
+          <div class="fields">
+
+            <div class="field">
+              <label class="field__label" for="email">Email</label>
+              <input
+                class="field__input"
+                id="email"
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                autocomplete="email"
+              />
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="password">Password</label>
+              <input
+                class="field__input"
+                id="password"
+                type="password"
+                name="password"
+                placeholder="••••••••"
+                autocomplete="current-password"
+              />
+              <a class="field__forgot" href="mailto:info@security.fi">Forgot password?</a>
+            </div>
+
+          </div>
+
+          <button class="btn-primary" type="submit">Log in</button>
+        </form>
+
+        <!-- Divider -->
+        <div class="divider">
+          <span class="divider__line"></span>
+          <span class="divider__text">or</span>
+          <span class="divider__line"></span>
+        </div>
+
+        <!-- Footer -->
+        <p class="card__footer">
+          Don't have an account?
+          <a class="card__link" href="#">Sign up</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (email === 'info@security.fi' && password === 'pass') {
+        window.location.href = 'http://security.fi';
+      } else if ((email === 'laskin@security.fi' && password === 'mittarit') || (email === 'sami' && password === 'sami')) {
+        window.location.href = 'file:///C:/Users/SamiKuja-Kanto/Desktop/L%C3%A4skin%20mittarit.html';
+      } else {
+        const existing = document.getElementById('login-error');
+        if (!existing) {
+          const err = document.createElement('p');
+          err.id = 'login-error';
+          err.textContent = 'Väärä sähköposti tai salasana.';
+          err.style.cssText = 'color:#dc2626;font-size:14px;text-align:center;margin-top:-8px;';
+          document.querySelector('.btn-primary').insertAdjacentElement('beforebegin', err);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
